@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Vibrant, accessible color palette for light mode */
+  --primary: 340 85 55; /* #E02C5A - Vibrant pink/red */
+  --primary-light: 340 75 65; /* #E85A7E - Lighter pink */
+  --primary-dark: 340 90 45; /* #C01E48 - Darker pink */
+
+  --secondary: 210 90 60; /* #3B82F6 - Vibrant blue */
+  --secondary-foreground: 0 0 100; /* #FFFFFF - White */
+
+  --accent: 160 84 40; /* #10B981 - Vibrant teal */
+  --accent-foreground: 0 0 100; /* #FFFFFF - White */
+
+  --success: 142 76 45; /* #22C55E - Vibrant green */
+  --warning: 38 92 50; /* #F59E0B - Vibrant amber */
+  --destructive: 0 84 60; /* #EF4444 - Vibrant red */
+  --destructive-foreground: 0 0 100; /* #FFFFFF - White */
+
+  --background: 0 0 100; /* #FFFFFF - White */
+  --foreground: 224 71 4; /* #0F172A - Near black with slight blue tint */
+
+  --card: 0 0 100; /* #FFFFFF - White */
+  --card-foreground: 224 71 4; /* #0F172A - Near black with slight blue tint */
+
+  --popover: 0 0 100; /* #FFFFFF - White */
+  --popover-foreground: 224 71 4; /* #0F172A - Near black with slight blue tint */
+
+  --muted: 220 14 96; /* #F1F5F9 - Light blue-gray */
+  --muted-foreground: 220 8 46; /* #64748B - Medium gray with blue tint */
+
+  --border: 220 13 91; /* #E2E8F0 - Light gray with blue tint */
+  --input: 220 13 91; /* #E2E8F0 - Light gray with blue tint */
+  --ring: 340 85 55; /* #E02C5A - Same as primary */
+
+  --radius: 0.5rem;
+
+  --font-poppins: var(--font-poppins), "Poppins", sans-serif;
+  --font-montserrat: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+.dark {
+  /* Vibrant, accessible color palette for dark mode */
+  --primary: 340 85 55; /* #E02C5A - Keeping primary consistent */
+  --primary-light: 340 75 65; /* #E85A7E - Lighter pink */
+  --primary-dark: 340 90 45; /* #C01E48 - Darker pink */
+
+  --secondary: 210 90 50; /* #2563EB - Slightly darker blue for dark mode */
+  --secondary-foreground: 0 0 100; /* #FFFFFF - White */
+
+  --accent: 160 84 30; /* #0D9668 - Darker teal for dark mode */
+  --accent-foreground: 0 0 100; /* #FFFFFF - White */
+
+  --background: 224 71 4; /* #0F172A - Very dark blue-gray */
+  --foreground: 210 20 98; /* #F8FAFC - Off-white */
+
+  --card: 224 71 6; /* #1E293B - Dark blue-gray */
+  --card-foreground: 210 20 98; /* #F8FAFC - Off-white */
+
+  --popover: 224 71 6; /* #1E293B - Dark blue-gray */
+  --popover-foreground: 210 20 98; /* #F8FAFC - Off-white */
+
+  --primary-foreground: 0 0 100; /* #FFFFFF - White */
+
+  --muted: 224 71 10; /* #334155 - Darker blue-gray */
+  --muted-foreground: 220 14 75; /* #94A3B8 - Light gray with blue tint */
+
+  --destructive: 0 84 60; /* #EF4444 - Vibrant red */
+  --destructive-foreground: 0 0 100; /* #FFFFFF - White */
+
+  --border: 224 71 10; /* #334155 - Darker blue-gray */
+  --input: 224 71 10; /* #334155 - Darker blue-gray */
+  --ring: 340 85 55; /* #E02C5A - Same as primary */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .animate-fade-in {
+    @apply animate-in fade-in duration-500;
+  }
+
+  .animate-slide-up {
+    @apply animate-in slide-in-from-bottom-10 duration-500;
+  }
+
+  .animate-slide-left {
+    @apply animate-in slide-in-from-left-10 duration-500;
+  }
+
+  .animate-slide-right {
+    @apply animate-in slide-in-from-right-10 duration-500;
+  }
+
+  /* Dark mode specific styles */
+  .dark .shadow-md {
+    @apply shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)];
+  }
+
+  .dark .shadow-lg {
+    @apply shadow-[0_10px_15px_-3px_rgba(0,0,0,0.4)];
+  }
+
+  /* Enhanced focus styles for better accessibility */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+/* Custom animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-content {
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-bar:hover .marquee-content {
+  animation-play-state: paused;
+}
