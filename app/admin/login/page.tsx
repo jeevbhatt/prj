@@ -149,13 +149,7 @@ export default function AdminLogin() {
           </Form>
 
           <div className="text-center mt-6 text-sm text-gray-600 dark:text-gray-400">
-            <p>
-              For demo, use:
-              <br />
-              Admin: username: <strong>admin</strong>, password: <strong>admin</strong>
-              <br />
-              Teacher: username: <strong>teacher</strong>, password: <strong>teacher</strong>
-            </p>
+
             <Link href="/" className="text-primary hover:underline mt-2 inline-block">
               Back to Home
             </Link>
